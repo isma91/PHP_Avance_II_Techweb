@@ -1,3 +1,7 @@
+fos_user:
+    db_driver: orm 
+    firewall_name: main
+    user_class: NM\UserBundle\Entity\User
 imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
