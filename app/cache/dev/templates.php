@@ -79,7 +79,6 @@
   'DoctrineBundle:Collector:explain.html.twig' => 'C:\\wamp\\www\\PHP_Avance_II_Techweb\\vendor\\doctrine\\doctrine-bundle/Resources/views/Collector/explain.html.twig',
   'NMTrelloBundle:Default:index.html.twig' => 'C:\\wamp\\www\\PHP_Avance_II_Techweb\\src\\NM\\TrelloBundle/Resources/views/Default/index.html.twig',
   'NMUserBundle:Default:index.html.twig' => 'C:\\wamp\\www\\PHP_Avance_II_Techweb\\src\\NM\\UserBundle/Resources/views/Default/index.html.twig',
-  'NMUserBundle:Default:register.html.twig' => 'C:\\wamp\\www\\PHP_Avance_II_Techweb\\src\\NM\\UserBundle/Resources/views/Default/register.html.twig',
   'NMUserBundle:Registration:register.html.twig' => 'C:\\wamp\\www\\PHP_Avance_II_Techweb\\src\\NM\\UserBundle/Resources/views/Registration/register.html.twig',
   'FOSUserBundle:ChangePassword:changePassword.html.twig' => 'C:\\wamp\\www\\PHP_Avance_II_Techweb\\vendor\\friendsofsymfony\\user-bundle/Resources/views/ChangePassword/changePassword.html.twig',
   'FOSUserBundle:ChangePassword:changePassword_content.html.twig' => 'C:\\wamp\\www\\PHP_Avance_II_Techweb\\vendor\\friendsofsymfony\\user-bundle/Resources/views/ChangePassword/changePassword_content.html.twig',

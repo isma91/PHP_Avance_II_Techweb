@@ -429,6 +429,22 @@
     <parameter key="assetic.sass.bin">/usr/bin/sass</parameter>
     <parameter key="assetic.reactjsx.bin">/usr/bin/jsx</parameter>
     <parameter key="assetic.filter.cssrewrite.class">Assetic\Filter\CssRewriteFilter</parameter>
+    <parameter key="assetic.filter.closure.api.class">Assetic\Filter\GoogleClosure\CompilerApiFilter</parameter>
+    <parameter key="assetic.filter.closure.jar.class">Assetic\Filter\GoogleClosure\CompilerJarFilter</parameter>
+    <parameter key="assetic.filter.closure.java">c:\ProgramData\Oracle\Java\javapath\java.EXE</parameter>
+    <parameter key="assetic.filter.closure.timeout">null</parameter>
+    <parameter key="assetic.filter.closure.compilation_level">null</parameter>
+    <parameter key="assetic.filter.closure.language_in">null</parameter>
+    <parameter key="assetic.filter.closure.formatting">null</parameter>
+    <parameter key="assetic.filter.closure.warning_level">null</parameter>
+    <parameter key="assetic.filter.closure.jar">C:\wamp\www\PHP_Avance_II_Techweb\app/Resources/java/compiler.jar</parameter>
+    <parameter key="assetic.filter.yui_css.class">Assetic\Filter\Yui\CssCompressorFilter</parameter>
+    <parameter key="assetic.filter.yui_css.java">c:\ProgramData\Oracle\Java\javapath\java.EXE</parameter>
+    <parameter key="assetic.filter.yui_css.jar">C:\wamp\www\PHP_Avance_II_Techweb\app/Resources/java/yuicompressor-2.4.7.jar</parameter>
+    <parameter key="assetic.filter.yui_css.charset">UTF-8</parameter>
+    <parameter key="assetic.filter.yui_css.stacksize">null</parameter>
+    <parameter key="assetic.filter.yui_css.timeout">null</parameter>
+    <parameter key="assetic.filter.yui_css.linebreak">null</parameter>
     <parameter key="assetic.twig_extension.functions" type="collection"/>
     <parameter key="assetic.controller.class">Symfony\Bundle\AsseticBundle\Controller\AsseticController</parameter>
     <parameter key="assetic.routing_loader.class">Symfony\Bundle\AsseticBundle\Routing\AsseticLoader</parameter>
@@ -1802,7 +1818,7 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>562560788a79f5.63312504</argument>
+            <argument>562616497dd838.56162144</argument>
           </service>
         </argument>
       </argument>
@@ -2097,7 +2113,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>562560788a79f5.63312504</argument>
+            <argument>562616497dd838.56162144</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2488,6 +2504,8 @@
       <argument type="service" id="service_container"/>
       <argument type="collection">
         <argument key="cssrewrite">assetic.filter.cssrewrite</argument>
+        <argument key="closure">assetic.filter.closure.jar</argument>
+        <argument key="yui_css">assetic.filter.yui_css</argument>
       </argument>
     </service>
     <service id="assetic.asset_manager" class="Assetic\Factory\LazyAssetManager">
@@ -2548,6 +2566,43 @@
     </service>
     <service id="assetic.filter.cssrewrite" class="Assetic\Filter\CssRewriteFilter">
       <tag name="assetic.filter" alias="cssrewrite"/>
+    </service>
+    <service id="assetic.filter.closure.jar" class="Assetic\Filter\GoogleClosure\CompilerJarFilter">
+      <tag name="assetic.filter" alias="closure"/>
+      <argument>C:\wamp\www\PHP_Avance_II_Techweb\app/Resources/java/compiler.jar</argument>
+      <argument>c:\ProgramData\Oracle\Java\javapath\java.EXE</argument>
+      <call method="setTimeout">
+        <argument>null</argument>
+      </call>
+      <call method="setCompilationLevel">
+        <argument>null</argument>
+      </call>
+      <call method="setLanguage">
+        <argument>null</argument>
+      </call>
+      <call method="setFormatting">
+        <argument>null</argument>
+      </call>
+      <call method="setWarningLevel">
+        <argument>null</argument>
+      </call>
+    </service>
+    <service id="assetic.filter.yui_css" class="Assetic\Filter\Yui\CssCompressorFilter">
+      <tag name="assetic.filter" alias="yui_css"/>
+      <argument>C:\wamp\www\PHP_Avance_II_Techweb\app/Resources/java/yuicompressor-2.4.7.jar</argument>
+      <argument>c:\ProgramData\Oracle\Java\javapath\java.EXE</argument>
+      <call method="setCharset">
+        <argument>UTF-8</argument>
+      </call>
+      <call method="setTimeout">
+        <argument>null</argument>
+      </call>
+      <call method="setStackSize">
+        <argument>null</argument>
+      </call>
+      <call method="setLineBreak">
+        <argument>null</argument>
+      </call>
     </service>
     <service id="assetic.controller" class="Symfony\Bundle\AsseticBundle\Controller\AsseticController">
       <argument type="service" id="assetic.asset_manager"/>
@@ -3399,5 +3454,6 @@
     <service id="fos_user.util.username_canonicalizer" alias="fos_user.util.email_canonicalizer"/>
     <service id="sensio.distribution.webconfigurator" alias="sensio_distribution.webconfigurator"/>
     <service id="console.command.sensiolabs_security_command_securitycheckercommand" alias="sensio_distribution.security_checker.command"/>
+    <service id="assetic.filter.closure" alias="assetic.filter.closure.jar"/>
   </services>
 </container>
