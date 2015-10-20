@@ -1,9 +1,5 @@
-
-<!--<div>
-    layout.logged_in_as |<a href="/logout">layout.logout</a>
-</div>-->
-{% extends '::index.html.twig' %}
-{% block body %}
+{% extends "FOSUserBundle::layout.html.twig" %}
+{% block fos_user_content %}
 <div>
             
     <form action="/register/"  method="POST" class="fos_user_registration_register">
@@ -13,5 +9,4 @@
             <input type="submit" value="registration.submit" />
         </div>
     </form>
-</div>
 {% endblock %}
