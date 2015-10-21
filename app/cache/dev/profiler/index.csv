@@ -1,1 +1,4 @@
-d1473b,127.0.0.1,GET,http://trello.dev/app_dev.php/register/,1445336664,,200
+8e9683,127.0.0.1,GET,http://trello_like.dev/app_dev.php/register/,1445418403,,200
+94a949,127.0.0.1,GET,http://trello_like.dev/app_dev.php/register/,1445418431,,200
+c298c0,127.0.0.1,POST,http://trello_like.dev/app_dev.php/register/,1445418457,,302
+9f3c5e,127.0.0.1,GET,http://trello_like.dev/app_dev.php/register/confirmed,1445418457,,200
