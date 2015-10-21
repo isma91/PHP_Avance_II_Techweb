@@ -11,7 +11,14 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Entity(repositoryClass="NM\TrelloBundle\Entity\ProjetsRepository")
  */
 class Projets
-{
+{   
+
+    /**
+    *
+    * @ORM\ManyToMany(targetEntity="NM\TrelloBundle\Entity\taches", cascade={"persist"})
+    */
+    private $taches;
+
     /**
      * @var integer
      *
@@ -155,5 +162,45 @@ class Projets
     {
         return $this->groupe;
     }
-}
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->taches = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
+    /**
+     * Add tach
+     *
+     * @param \NM\TrelloBundle\Entity\taches $tach
+     *
+     * @return Projets
+     */
+    public function addTach(\NM\TrelloBundle\Entity\taches $tach)
+    {
+        $this->taches[] = $tach;
+    
+        return $this;
+    }
+
+    /**
+     * Remove tach
+     *
+     * @param \NM\TrelloBundle\Entity\taches $tach
+     */
+    public function removeTach(\NM\TrelloBundle\Entity\taches $tach)
+    {
+        $this->taches->removeElement($tach);
+    }
+
+    /**
+     * Get taches
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getTaches()
+    {
+        return $this->taches;
+    }
+}
