@@ -41,38 +41,5 @@ class User extends BaseUser
     {
         parent::__construct();
     }
-
-    /**
-     * Add projet
-     *
-     * @param \NM\TrelloBundle\Entity\Projets $projet
-     *
-     * @return User
-     */
-    public function addProjet(\NM\TrelloBundle\Entity\Projets $projet)
-    {
-        $this->projets[] = $projet;
-    
-        return $this;
-    }
-
-    /**
-     * Remove projet
-     *
-     * @param \NM\TrelloBundle\Entity\Projets $projet
-     */
-    public function removeProjet(\NM\TrelloBundle\Entity\Projets $projet)
-    {
-        $this->projets->removeElement($projet);
-    }
-
-    /**
-     * Get projets
-     *
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getProjets()
-    {
-        return $this->projets;
-    }
 }
+
