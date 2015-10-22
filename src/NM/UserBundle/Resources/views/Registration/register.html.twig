@@ -1,33 +1,49 @@
 {% extends "FOSUserBundle::layout.html.twig" %}
 {% block fos_user_content %}
 
-<div>
-<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/main.css') }}" type="text/css" media="all" />
-<form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
-     
-    {{ form_errors(form) }}
-     
-    <td>{{ form_errors(form.username)}}</td>
-    <td>{{ form_label(form.username, 'Login')}}</td>
-    <td>{{ form_widget(form.username, { 'attr': {'class': 'input', 'placeholder' : 'Nom'} }) }}</td>
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/my_style.css') }}" type="text/css" media="all" />
 
-    <td>{{ form_errors(form.email) }}</td>
-    <td>{{ form_label(form.email, 'Email') }}</td>
-    <td>{{ form_widget(form.email, { 'attr': {'class': 'input', 'placeholder' : 'Adresse email'} }) }}</td>
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="titre">Bienvenue dans Trello_Like</h1>
+        <h2 class="titre">Veuillez vous inscrire pour vous creer un compte !!</h2>
+    </div>
+    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST" class="fos_user_registration_register">
 
-    <td>{{ form_errors(form.plainPassword.first) }}</td>
-    <td>{{ form_label(form.plainPassword.first, 'Mot de passe') }}</td>
-    <td>{{ form_widget(form.plainPassword.first, { 'attr': {'class': 'input', 'placeholder' : '....'} }) }}</td>
+        {{ form_errors(form) }}
 
-    <td>{{ form_errors(form.plainPassword.second) }}</td>
-    <td>{{ form_label(form.plainPassword.second, 'Confirmez mot de passe') }}</td>
-    <td>{{ form_widget(form.plainPassword.second, { 'attr': {'class': 'input', 'placeholder' : '....'} }) }}</td>
+        <div class="form-group">
+            <td>{{ form_errors(form.username)}}</td>
+            <td>{{ form_label(form.username, 'Login')}}</td>
+            <td>{{ form_widget(form.username, { 'attr': {'class': 'input form-control', 'placeholder' : 'Nom'} }) }}</td>
+        </div>
 
+        <div class="form-group">
+            <td>{{ form_errors(form.email) }}</td>
+            <td>{{ form_label(form.email, 'Email') }}</td>
+            <td>{{ form_widget(form.email, { 'attr': {'class': 'input form-control', 'placeholder' : 'Adresse email'} }) }}</td>
+        </div>
+        
+        <div class="form-group">
+            <td>{{ form_errors(form.plainPassword.first) }}</td>
+            <td>{{ form_label(form.plainPassword.first, 'Mot de passe') }}</td>
+            <td>{{ form_widget(form.plainPassword.first, { 'attr': {'class': 'input form-control', 'placeholder' : '....'} }) }}</td>
+        </div>
+        
+        <div class="form-group">
+            <td>{{ form_errors(form.plainPassword.second) }}</td>
+            <td>{{ form_label(form.plainPassword.second, 'Confirmez mot de passe') }}</td>
+            <td>{{ form_widget(form.plainPassword.second, { 'attr': {'class': 'input form-control', 'placeholder' : '....'} }) }}</td>
+        </div>
 
-    {{ form_rest(form) }}
+        {{ form_rest(form) }}
 
-<input class="button button-green" type="submit" value="{{ 'Inscription'|trans({}, 'FOSUserBundle') }}" />
-</form>
+        <div class="form-group">
+            <input class="button button-green btn btn-lg btn-primary form-control" type="submit" value="{{ 'Inscription'|trans({}, 'FOSUserBundle') }}" />
+        </div>
+    </form>
 </div> 
 {% endblock fos_user_content %}
 
