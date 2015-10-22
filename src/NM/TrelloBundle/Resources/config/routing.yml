@@ -1,3 +1,34 @@
-nm_trello_homepage:
-    path:     /hello/{name}
-    defaults: { _controller: NMTrelloBundle:Default:index }
+nm_trello_taches:
+    resource: "@NMTrelloBundle/Resources/config/routing/taches.yml"
+    prefix:   /taches
+
+projets:
+    path:     /
+    defaults: { _controller: "NMTrelloBundle:Projets:index" }
+
+projets_show:
+    path:     /{id}/show
+    defaults: { _controller: "NMTrelloBundle:Projets:show" }
+
+projets_new:
+    path:     /new
+    defaults: { _controller: "NMTrelloBundle:Projets:new" }
+
+projets_create:
+    path:     /create
+    defaults: { _controller: "NMTrelloBundle:Projets:create" }
+    methods:  POST
+
+projets_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NMTrelloBundle:Projets:edit" }
+
+projets_update:
+    path:     /{id}/update
+    defaults: { _controller: "NMTrelloBundle:Projets:update" }
+    methods:  [POST, PUT]
+
+projets_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NMTrelloBundle:Projets:delete" }
+    methods:  [POST, DELETE]

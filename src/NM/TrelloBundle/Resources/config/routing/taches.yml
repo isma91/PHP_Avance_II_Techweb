@@ -1,0 +1,30 @@
+taches:
+    path:     /
+    defaults: { _controller: "NMTrelloBundle:taches:index" }
+
+taches_show:
+    path:     /{id}/show
+    defaults: { _controller: "NMTrelloBundle:taches:show" }
+
+taches_new:
+    path:     /new
+    defaults: { _controller: "NMTrelloBundle:taches:new" }
+
+taches_create:
+    path:     /create
+    defaults: { _controller: "NMTrelloBundle:taches:create" }
+    methods:  POST
+
+taches_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "NMTrelloBundle:taches:edit" }
+
+taches_update:
+    path:     /{id}/update
+    defaults: { _controller: "NMTrelloBundle:taches:update" }
+    methods:  [POST, PUT]
+
+taches_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "NMTrelloBundle:taches:delete" }
+    methods:  [POST, DELETE]

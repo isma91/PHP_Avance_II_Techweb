@@ -4,16 +4,13 @@ namespace NM\TrelloBundle\Controller;
 
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
+
 use NM\TrelloBundle\Entity\Projets;
 use NM\TrelloBundle\Form\ProjetsType;
 
 /**
  * Projets controller.
  *
- * @Route("/projets")
  */
 class ProjetsController extends Controller
 {
@@ -21,9 +18,6 @@ class ProjetsController extends Controller
     /**
      * Lists all Projets entities.
      *
-     * @Route("/", name="projets")
-     * @Method("GET")
-     * @Template()
      */
     public function indexAction()
     {
@@ -31,16 +25,13 @@ class ProjetsController extends Controller
 
         $entities = $em->getRepository('NMTrelloBundle:Projets')->findAll();
 
-        return array(
+        return $this->render('NMTrelloBundle:Projets:index.html.twig', array(
             'entities' => $entities,
-        );
+        ));
     }
     /**
      * Creates a new Projets entity.
      *
-     * @Route("/", name="projets_create")
-     * @Method("POST")
-     * @Template("NMTrelloBundle:Projets:new.html.twig")
      */
     public function createAction(Request $request)
     {
@@ -56,10 +47,10 @@ class ProjetsController extends Controller
             return $this->redirect($this->generateUrl('projets_show', array('id' => $entity->getId())));
         }
 
-        return array(
+        return $this->render('NMTrelloBundle:Projets:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
@@ -84,27 +75,21 @@ class ProjetsController extends Controller
     /**
      * Displays a form to create a new Projets entity.
      *
-     * @Route("/new", name="projets_new")
-     * @Method("GET")
-     * @Template()
      */
     public function newAction()
     {
         $entity = new Projets();
         $form   = $this->createCreateForm($entity);
 
-        return array(
+        return $this->render('NMTrelloBundle:Projets:new.html.twig', array(
             'entity' => $entity,
             'form'   => $form->createView(),
-        );
+        ));
     }
 
     /**
      * Finds and displays a Projets entity.
      *
-     * @Route("/{id}", name="projets_show")
-     * @Method("GET")
-     * @Template()
      */
     public function showAction($id)
     {
@@ -118,18 +103,15 @@ class ProjetsController extends Controller
 
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('NMTrelloBundle:Projets:show.html.twig', array(
             'entity'      => $entity,
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
      * Displays a form to edit an existing Projets entity.
      *
-     * @Route("/{id}/edit", name="projets_edit")
-     * @Method("GET")
-     * @Template()
      */
     public function editAction($id)
     {
@@ -144,11 +126,11 @@ class ProjetsController extends Controller
         $editForm = $this->createEditForm($entity);
         $deleteForm = $this->createDeleteForm($id);
 
-        return array(
+        return $this->render('NMTrelloBundle:Projets:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
 
     /**
@@ -172,9 +154,6 @@ class ProjetsController extends Controller
     /**
      * Edits an existing Projets entity.
      *
-     * @Route("/{id}", name="projets_update")
-     * @Method("PUT")
-     * @Template("NMTrelloBundle:Projets:edit.html.twig")
      */
     public function updateAction(Request $request, $id)
     {
@@ -196,17 +175,15 @@ class ProjetsController extends Controller
             return $this->redirect($this->generateUrl('projets_edit', array('id' => $id)));
         }
 
-        return array(
+        return $this->render('NMTrelloBundle:Projets:edit.html.twig', array(
             'entity'      => $entity,
             'edit_form'   => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
-        );
+        ));
     }
     /**
      * Deletes a Projets entity.
      *
-     * @Route("/{id}", name="projets_delete")
-     * @Method("DELETE")
      */
     public function deleteAction(Request $request, $id)
     {
