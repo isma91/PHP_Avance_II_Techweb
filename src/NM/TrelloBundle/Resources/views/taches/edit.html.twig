@@ -1,16 +1,22 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>taches edit</h1>
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/my_style.css') }}" type="text/css" media="all" />
+<div class="container">
+	<div class="jumbotron">
+		<h1 class="titre">Modifier la tache ""</h1>
+	</div>
 
-    {{ form(edit_form) }}
+	{{ form(edit_form) }}
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('taches') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+	<div class="form-group">
+		{{ form(delete_form) }}
+	</div>
+
+	<div class="form-group">
+		<a href="{{ path('taches') }}" class="titre form-control">Revenir a la liste des taches</a>
+	</div>
+</div>
 {% endblock %}
