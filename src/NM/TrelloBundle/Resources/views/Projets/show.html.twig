@@ -1,44 +1,34 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Projets</h1>
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/my_style.css') }}" type="text/css" media="all" />
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="titre">Voici les detail du projet "{{ entity.nom }}" !!</h1>
+    </div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ entity.nom }}</td>
-            </tr>
-            <tr>
-                <th>Date</th>
-                <td>{{ entity.date|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Membre</th>
-                <td>{{ entity.membre }}</td>
-            </tr>
-            <tr>
-                <th>Groupe</th>
-                <td>{{ entity.groupe }}</td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="{{ path('projets_show', { 'id': entity.id }) }}">{{ entity.nom }}</a></h3>
+        </div>
+        <div class="panel-body">
+            Crée le : {% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}
+        </div>
+        <div class="panel-body">
+            Les membres du projet : {{ entity.membre }}
+        </div>
+        <div class="panel-body">
+            <a href="{{ path('projets_edit', { 'id': entity.id }) }}">Editer le projet</a>
+        </div>
+        <div class="panel-body">
+            {{ form(delete_form) }}
+        </div>
+    </div>
 
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('projets') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('projets_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="form-group">
+        <a href="{{ path('projets') }}" class="titre form-control">Revenir a la liste de vos projets !!</a>
+    </div>
+</div>
 {% endblock %}

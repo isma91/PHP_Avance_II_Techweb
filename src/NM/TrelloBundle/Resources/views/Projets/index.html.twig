@@ -1,47 +1,33 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Projets list</h1>
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/my_style.css') }}" type="text/css" media="all" />
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="titre">Voici la liste de vos projets !!</h1>
+    </div>
 
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>Date</th>
-                <th>Membre</th>
-                <th>Groupe</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entities %}
-            <tr>
-                <td><a href="{{ path('projets_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.nom }}</td>
-                <td>{% if entity.date %}{{ entity.date|date('Y-m-d H:i:s') }}{% endif %}</td>
-                <td>{{ entity.membre }}</td>
-                <td>{{ entity.groupe }}</td>
-                <td>
-                <ul>
-                    <li>
-                        <a href="{{ path('projets_show', { 'id': entity.id }) }}">show</a>
-                    </li>
-                    <li>
-                        <a href="{{ path('projets_edit', { 'id': entity.id }) }}">edit</a>
-                    </li>
-                </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-        <ul>
-        <li>
-            <a href="{{ path('projets_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+    <div class="form-group">
+        <a href="{{ path('projets_new') }}" class="form-control titre">Creer un nouveau projet</a>
+    </div>
+    
+    {% for entity in entities %}
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="{{ path('projets_show', { 'id': entity.id }) }}">{{ entity.nom }}</a></h3>
+        </div>
+        <div class="panel-body">
+            Crée le : {% if entity.date %}{{ entity.date|date('d-m-Y') }}{% endif %}
+        </div>
+        <div class="panel-body">
+            Les membres du projet : {{ entity.membre }}
+        </div>
+        <div class="panel-body">
+            <a href="{{ path('projets_edit', { 'id': entity.id }) }}">Editer le projet</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
