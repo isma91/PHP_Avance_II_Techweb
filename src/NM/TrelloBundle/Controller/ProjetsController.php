@@ -67,7 +67,7 @@ class ProjetsController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Creer le projet', 'attr' => array('class' => 'btn btn-primary form-control')));
 
         return $form;
     }
@@ -147,7 +147,7 @@ class ProjetsController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Modifier le projet', 'attr' => array('class' => 'btn btn-primary form-control')));
 
         return $form;
     }
@@ -217,7 +217,7 @@ class ProjetsController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('projets_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer le projet', 'attr' => array('class' => 'btn btn-danger form-control')))
             ->getForm()
         ;
     }
