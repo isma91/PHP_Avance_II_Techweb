@@ -1,15 +1,16 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>Projets creation</h1>
-
-    {{ form(form) }}
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('projets') }}">
-            Back to the list
-        </a>
-    </li>
-</ul>
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/my_style.css') }}" type="text/css" media="all" />
+<div class="container">
+	<div class="jumbotron">
+		<h1 class="titre">Creation du projet</h1>
+	</div>
+	<div class="form-group">
+		<a href="{{ path('projets') }}" class="titre form-control">Revenir a la liste de vos projets !!</a>
+	</div>
+	{{ form(form) }}
+</div>
 {% endblock %}
