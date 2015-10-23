@@ -16,3 +16,7 @@ fos_user:
 home:
     path: /index
     defaults: {_controller: NMTrelloBundle:Default:index}
+
+homepage:
+    path: /
+    defaults: {_controller: FOSUserBundle:Registration:register}
