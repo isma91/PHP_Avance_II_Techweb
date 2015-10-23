@@ -1,48 +1,39 @@
 {% extends '::base.html.twig' %}
 
 {% block body -%}
-    <h1>taches</h1>
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/bootstrap-theme.min.css') }}" type="text/css" media="all" />
+<link rel="stylesheet" href="{{ asset('bundles/nmuser/css/my_style.css') }}" type="text/css" media="all" />
+<div class="container">
+    <div class="jumbotron">
+        <h1 class="titre">Voici les detail de la tache "{{ entity.nom }}" !!</h1>
+    </div>
 
-    <table class="record_properties">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ entity.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ entity.nom }}</td>
-            </tr>
-            <tr>
-                <th>Description</th>
-                <td>{{ entity.description }}</td>
-            </tr>
-            <tr>
-                <th>Etiquette</th>
-                <td>{{ entity.etiquette }}</td>
-            </tr>
-            <tr>
-                <th>Datelimite</th>
-                <td>{{ entity.dateLimite|date('Y-m-d H:i:s') }}</td>
-            </tr>
-            <tr>
-                <th>Cheklist</th>
-                <td>{{ entity.cheklist }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-        <ul class="record_actions">
-    <li>
-        <a href="{{ path('taches') }}">
-            Back to the list
-        </a>
-    </li>
-    <li>
-        <a href="{{ path('taches_edit', { 'id': entity.id }) }}">
-            Edit
-        </a>
-    </li>
-    <li>{{ form(delete_form) }}</li>
-</ul>
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title"><a href="{{ path('taches_show', { 'id': entity.id }) }}">{{ entity.nom }}</a></h3>
+        </div>
+        <div class="panel-body">
+            DeadLine le : {% if entity.dateLimite %}{{ entity.dateLimite|date('d-m-Y H:i:s') }}{% endif %}
+        </div>
+        <div class="panel-body">
+            La description de la tache : {{ entity.description }}
+        </div>
+        <div class="panel-body">
+            Le checklist : {{ entity.cheklist }}
+        </div>
+        <div class="panel-body">
+            Les etiquettes : {{ entity.etiquette }}
+        </div>
+        <div class="panel-body">
+            <a href="{{ path('taches_edit', { 'id': entity.id }) }}">Editer la tache</a>
+        </div>
+        <div class="panel-body">
+            {{ form(delete_form) }}
+        </div>
+    </div>
+    <div class="form-group">
+        <a href="{{ path('taches') }}" class="titre form-control">Revenir a la liste des tahces</a>
+    </div>
+</div>
 {% endblock %}

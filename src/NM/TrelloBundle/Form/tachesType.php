@@ -15,11 +15,11 @@ class tachesType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
-            ->add('description')
-            ->add('etiquette')
-            ->add('dateLimite')
-            ->add('cheklist')
+            ->add('nom', 'text' , array('attr' => array('class' => 'form-control')))
+            ->add('description', 'textarea' , array('attr' => array('class' => 'form-control')))
+            ->add('etiquette', 'text' , array('attr' => array('class' => 'form-control')))
+            ->add('dateLimite', 'date', array('attr' => array('class' => 'form-control')))
+            ->add('cheklist', 'text', array('attr' => array('class' => 'form-control')))
         ;
     }
     
