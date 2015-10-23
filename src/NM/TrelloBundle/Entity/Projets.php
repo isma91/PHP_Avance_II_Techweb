@@ -17,7 +17,7 @@ class Projets
     *
     * @ORM\ManyToMany(targetEntity="NM\TrelloBundle\Entity\taches", cascade={"persist"})
     */
-    private $taches;
+    public $taches;
 
     /**
      * @var integer
@@ -171,27 +171,27 @@ class Projets
     }
 
     /**
-     * Add tach
+     * Add taches
      *
      * @param \NM\TrelloBundle\Entity\taches $tach
      *
      * @return Projets
      */
-    public function addTach(\NM\TrelloBundle\Entity\taches $tach)
+    public function addTaches(\NM\TrelloBundle\Entity\taches $taches)
     {
-        $this->taches[] = $tach;
+        $this->taches[] = $taches;
     
         return $this;
     }
 
     /**
-     * Remove tach
+     * Remove taches
      *
-     * @param \NM\TrelloBundle\Entity\taches $tach
+     * @param \NM\TrelloBundle\Entity\taches $taches
      */
-    public function removeTach(\NM\TrelloBundle\Entity\taches $tach)
+    public function removeTaches(\NM\TrelloBundle\Entity\taches $taches)
     {
-        $this->taches->removeElement($tach);
+        $this->taches->removeElement($taches);
     }
 
     /**

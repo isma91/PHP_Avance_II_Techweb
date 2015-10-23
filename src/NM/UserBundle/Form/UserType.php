@@ -1,12 +1,12 @@
 <?php
 
-namespace NM\TrelloBundle\Form;
+namespace NM\UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-class ProjetsType extends AbstractType
+class UserType extends AbstractType
 {
     /**
      * @param FormBuilderInterface $builder
@@ -15,11 +15,7 @@ class ProjetsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom', 'text' , array('attr' => array('class' => 'form-control')))
-            ->add('date')
-            ->add('membre', 'text' , array('attr' => array('class' => 'form-control')))
-            ->add('groupe')
-            //->add('taches', 'text' , array('attr' => array('class' => 'form-control')))
+            ->add('projets')
         ;
     }
     
@@ -29,7 +25,7 @@ class ProjetsType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'NM\TrelloBundle\Entity\Projets'
+            'data_class' => 'NM\UserBundle\Entity\User'
         ));
     }
 
@@ -38,6 +34,6 @@ class ProjetsType extends AbstractType
      */
     public function getName()
     {
-        return 'nm_trellobundle_projets';
+        return 'nm_userbundle_user';
     }
 }
