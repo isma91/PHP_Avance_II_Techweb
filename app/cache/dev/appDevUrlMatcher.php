@@ -192,62 +192,65 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
 
         }
 
-        // projets
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'projets');
+        if (0 === strpos($pathinfo, '/projets')) {
+            // projets
+            if (rtrim($pathinfo, '/') === '/projets') {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'projets');
+                }
+
+                return array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::indexAction',  '_route' => 'projets',);
             }
 
-            return array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::indexAction',  '_route' => 'projets',);
-        }
-
-        // projets_show
-        if (preg_match('#^/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_show')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::showAction',));
-        }
-
-        // projets_new
-        if ($pathinfo === '/new') {
-            return array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::newAction',  '_route' => 'projets_new',);
-        }
-
-        // projets_create
-        if ($pathinfo === '/create') {
-            if ($this->context->getMethod() != 'POST') {
-                $allow[] = 'POST';
-                goto not_projets_create;
+            // projets_show
+            if (preg_match('#^/projets/(?P<id>[^/]++)/show$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_show')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::showAction',));
             }
 
-            return array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::createAction',  '_route' => 'projets_create',);
-        }
-        not_projets_create:
-
-        // projets_edit
-        if (preg_match('#^/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_edit')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::editAction',));
-        }
-
-        // projets_update
-        if (preg_match('#^/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
-            if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
-                $allow = array_merge($allow, array('POST', 'PUT'));
-                goto not_projets_update;
+            // projets_new
+            if ($pathinfo === '/projets/new') {
+                return array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::newAction',  '_route' => 'projets_new',);
             }
 
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_update')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::updateAction',));
-        }
-        not_projets_update:
+            // projets_create
+            if ($pathinfo === '/projets/create') {
+                if ($this->context->getMethod() != 'POST') {
+                    $allow[] = 'POST';
+                    goto not_projets_create;
+                }
 
-        // projets_delete
-        if (preg_match('#^/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
-            if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
-                $allow = array_merge($allow, array('POST', 'DELETE'));
-                goto not_projets_delete;
+                return array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::createAction',  '_route' => 'projets_create',);
+            }
+            not_projets_create:
+
+            // projets_edit
+            if (preg_match('#^/projets/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_edit')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::editAction',));
             }
 
-            return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_delete')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::deleteAction',));
+            // projets_update
+            if (preg_match('#^/projets/(?P<id>[^/]++)/update$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'PUT'))) {
+                    $allow = array_merge($allow, array('POST', 'PUT'));
+                    goto not_projets_update;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_update')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::updateAction',));
+            }
+            not_projets_update:
+
+            // projets_delete
+            if (preg_match('#^/projets/(?P<id>[^/]++)/delete$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('POST', 'DELETE'))) {
+                    $allow = array_merge($allow, array('POST', 'DELETE'));
+                    goto not_projets_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'projets_delete')), array (  '_controller' => 'NM\\TrelloBundle\\Controller\\ProjetsController::deleteAction',));
+            }
+            not_projets_delete:
+
         }
-        not_projets_delete:
 
         // homepage
         if (rtrim($pathinfo, '/') === '') {

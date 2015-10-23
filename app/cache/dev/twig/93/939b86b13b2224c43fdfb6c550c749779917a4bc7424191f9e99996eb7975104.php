@@ -21,20 +21,20 @@ class __TwigTemplate_b38e1b31ead35ab9f6a68f9188c3409bc9cbe9290b3fc22fa751894c851
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6b7e5628d4f41eeda4392c75723fbecbc7810c9314f7ba86e539b8bdd3aa576d = $this->env->getExtension("native_profiler");
-        $__internal_6b7e5628d4f41eeda4392c75723fbecbc7810c9314f7ba86e539b8bdd3aa576d->enter($__internal_6b7e5628d4f41eeda4392c75723fbecbc7810c9314f7ba86e539b8bdd3aa576d_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "NMTrelloBundle:taches:index.html.twig"));
+        $__internal_f36e91db4fde97e0052d25b18c998d3f221528c228b0639de64d2a3a0237776c = $this->env->getExtension("native_profiler");
+        $__internal_f36e91db4fde97e0052d25b18c998d3f221528c228b0639de64d2a3a0237776c->enter($__internal_f36e91db4fde97e0052d25b18c998d3f221528c228b0639de64d2a3a0237776c_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "NMTrelloBundle:taches:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_6b7e5628d4f41eeda4392c75723fbecbc7810c9314f7ba86e539b8bdd3aa576d->leave($__internal_6b7e5628d4f41eeda4392c75723fbecbc7810c9314f7ba86e539b8bdd3aa576d_prof);
+        $__internal_f36e91db4fde97e0052d25b18c998d3f221528c228b0639de64d2a3a0237776c->leave($__internal_f36e91db4fde97e0052d25b18c998d3f221528c228b0639de64d2a3a0237776c_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_e0a79bdbe5bb6c6a5b03b211fa7a1338f781491aeb984b61575397911485d8cd = $this->env->getExtension("native_profiler");
-        $__internal_e0a79bdbe5bb6c6a5b03b211fa7a1338f781491aeb984b61575397911485d8cd->enter($__internal_e0a79bdbe5bb6c6a5b03b211fa7a1338f781491aeb984b61575397911485d8cd_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_99088518a1703954bb4a8265591b29324e2a619eb9e54a6a5c37c2ea8caf1479 = $this->env->getExtension("native_profiler");
+        $__internal_99088518a1703954bb4a8265591b29324e2a619eb9e54a6a5c37c2ea8caf1479->enter($__internal_99088518a1703954bb4a8265591b29324e2a619eb9e54a6a5c37c2ea8caf1479_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "<h1>taches list</h1>
@@ -125,7 +125,7 @@ class __TwigTemplate_b38e1b31ead35ab9f6a68f9188c3409bc9cbe9290b3fc22fa751894c851
     </ul>
     ";
         
-        $__internal_e0a79bdbe5bb6c6a5b03b211fa7a1338f781491aeb984b61575397911485d8cd->leave($__internal_e0a79bdbe5bb6c6a5b03b211fa7a1338f781491aeb984b61575397911485d8cd_prof);
+        $__internal_99088518a1703954bb4a8265591b29324e2a619eb9e54a6a5c37c2ea8caf1479->leave($__internal_99088518a1703954bb4a8265591b29324e2a619eb9e54a6a5c37c2ea8caf1479_prof);
 
     }
 

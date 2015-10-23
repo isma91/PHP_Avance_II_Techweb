@@ -21,20 +21,20 @@ class __TwigTemplate_f4234425bac7cc2798c25411204b93238918d9a851ced7d2d4090225acb
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_6165480d2477204a975966843c44719bb5e9278b89bd2e4127942b5cf7f360ab = $this->env->getExtension("native_profiler");
-        $__internal_6165480d2477204a975966843c44719bb5e9278b89bd2e4127942b5cf7f360ab->enter($__internal_6165480d2477204a975966843c44719bb5e9278b89bd2e4127942b5cf7f360ab_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "NMTrelloBundle:Projets:index.html.twig"));
+        $__internal_4e66c7ea88e9e9f0ed0cce7990721a6a61f7133db540a99e28d916710e27c655 = $this->env->getExtension("native_profiler");
+        $__internal_4e66c7ea88e9e9f0ed0cce7990721a6a61f7133db540a99e28d916710e27c655->enter($__internal_4e66c7ea88e9e9f0ed0cce7990721a6a61f7133db540a99e28d916710e27c655_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "NMTrelloBundle:Projets:index.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_6165480d2477204a975966843c44719bb5e9278b89bd2e4127942b5cf7f360ab->leave($__internal_6165480d2477204a975966843c44719bb5e9278b89bd2e4127942b5cf7f360ab_prof);
+        $__internal_4e66c7ea88e9e9f0ed0cce7990721a6a61f7133db540a99e28d916710e27c655->leave($__internal_4e66c7ea88e9e9f0ed0cce7990721a6a61f7133db540a99e28d916710e27c655_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_1810822d7e45aabc5deb7ffe5295a6814bc7914f796bbbdd777755b66a6b1c88 = $this->env->getExtension("native_profiler");
-        $__internal_1810822d7e45aabc5deb7ffe5295a6814bc7914f796bbbdd777755b66a6b1c88->enter($__internal_1810822d7e45aabc5deb7ffe5295a6814bc7914f796bbbdd777755b66a6b1c88_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_3453abaa44bc39e2ca29e749ba0e074c9551d307698ffd0737eb4fd7aafb1188 = $this->env->getExtension("native_profiler");
+        $__internal_3453abaa44bc39e2ca29e749ba0e074c9551d307698ffd0737eb4fd7aafb1188->enter($__internal_3453abaa44bc39e2ca29e749ba0e074c9551d307698ffd0737eb4fd7aafb1188_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
         echo "<h1>Projets list</h1>
@@ -120,7 +120,7 @@ class __TwigTemplate_f4234425bac7cc2798c25411204b93238918d9a851ced7d2d4090225acb
     </ul>
     ";
         
-        $__internal_1810822d7e45aabc5deb7ffe5295a6814bc7914f796bbbdd777755b66a6b1c88->leave($__internal_1810822d7e45aabc5deb7ffe5295a6814bc7914f796bbbdd777755b66a6b1c88_prof);
+        $__internal_3453abaa44bc39e2ca29e749ba0e074c9551d307698ffd0737eb4fd7aafb1188->leave($__internal_3453abaa44bc39e2ca29e749ba0e074c9551d307698ffd0737eb4fd7aafb1188_prof);
 
     }
 
