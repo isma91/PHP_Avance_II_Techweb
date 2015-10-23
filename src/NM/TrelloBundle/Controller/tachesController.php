@@ -67,7 +67,7 @@ class tachesController extends Controller
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Creer la tache', 'attr' => array('class' => 'btn btn-primary form-control')));
 
         return $form;
     }
@@ -147,7 +147,7 @@ class tachesController extends Controller
             'method' => 'PUT',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Update'));
+        $form->add('submit', 'submit', array('label' => 'Modifier la tache', 'attr' => array('class' => 'btn btn-primary form-control')));
 
         return $form;
     }
@@ -217,7 +217,7 @@ class tachesController extends Controller
         return $this->createFormBuilder()
             ->setAction($this->generateUrl('taches_delete', array('id' => $id)))
             ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
+            ->add('submit', 'submit', array('label' => 'Supprimer la tache', 'attr' => array('class' => 'btn btn-danger form-control')))
             ->getForm()
         ;
     }
