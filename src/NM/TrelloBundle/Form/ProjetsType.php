@@ -15,11 +15,11 @@ class ProjetsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nom')
+            ->add('nom', 'text' , array('attr' => array('class' => 'form-control')))
             ->add('date')
-            ->add('membre')
+            ->add('membre', 'text' , array('attr' => array('class' => 'form-control')))
             ->add('groupe')
-            ->add('taches')
+            ->add('taches', 'text' , array('attr' => array('class' => 'form-control')))
         ;
     }
     
